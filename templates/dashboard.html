@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ransomware Detection System</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+
+            <h1>🛡️ Ransomware Detection & Prevention System</h1>
+
+            <p>Real-Time File Activity Monitor</p>
+
+        </header>
+
+
+        <!-- System Status -->
+
+        <section class="card">
+
+            <h2>System Status</h2>
+
+            <div class="status-row">
+
+                <span>Status:</span>
+
+                <strong id="status">
+                    Stopped
+                </strong>
+
+            </div>
+
+            <div class="status-row">
+
+                <span>Protected User Folder:</span>
+
+                <strong id="folder">
+                    None
+                </strong>
+
+            </div>
+
+            <div class="controls">
+
+                <button onclick="startMonitoring()">
+                    🛡️ Start Protection
+                </button>
+
+                <button onclick="stopMonitoring()">
+                    ⛔ Stop Protection
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- Risk Level -->
+
+        <section class="card">
+
+            <h2>Current Risk Level</h2>
+
+            <div id="riskLevel" class="risk low">
+                LOW
+            </div>
+
+            <p id="riskMessage">
+                System activity is normal.
+            </p>
+
+        </section>
+
+
+        <!-- Suspicious Process -->
+
+        <section class="card">
+
+            <h2>🔎 Suspicious Process</h2>
+
+            <div class="status-row">
+
+                <span>Process:</span>
+
+                <strong id="suspiciousProcess">
+                    None detected
+                </strong>
+
+            </div>
+
+            <div class="status-row">
+
+                <span>PID:</span>
+
+                <strong id="suspiciousPid">
+                    None
+                </strong>
+
+            </div>
+
+            <div class="status-row">
+
+                <span>Suspicious File:</span>
+
+                <strong id="suspiciousPath">
+                    None
+                </strong>
+
+            </div>
+
+
+            <!-- Threat Response -->
+
+            <div class="controls">
+
+                <button
+                    id="respondButton"
+                    onclick="respondToThreat()"
+                    style="display: none;">
+
+                    🛑 Stop Suspicious Process
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- Alerts -->
+
+        <section class="card">
+
+            <h2>🚨 Recent Alerts</h2>
+
+            <div id="alerts">
+
+                <p>No alerts yet.</p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Activity Log -->
+
+        <section class="card">
+
+            <h2>📋 Recent File Activity</h2>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Type</th>
+
+                            <th>File</th>
+
+                            <th>Time</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="eventsTable">
+
+                        <tr>
+
+                            <td colspan="3">
+                                No activity yet.
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}">
+    </script>
+
+</body>
+
+</html>
